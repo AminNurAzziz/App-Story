@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:story/list_story.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,6 +18,8 @@ class _LoginPageState extends State<LoginPage>
   final TextEditingController passwordController = TextEditingController();
   bool isLoading = false;
   String message = '';
+  String? authToken; // Menyimpan token otentikasi
+  String? name;
 
   @override
   void initState() {
@@ -54,12 +57,21 @@ class _LoginPageState extends State<LoginPage>
     if (response.statusCode == 200) {
       final responseData = jsonDecode(response.body);
       final loginResult = responseData['loginResult'];
-      final name = loginResult['name']; // Ini adalah nama pengguna
+      name = loginResult['name']; // Ini adalah nama pengguna
       if (responseData['error'] == false) {
         setState(() {
           message = 'Login berhasil: ${name}';
+          authToken = loginResult['token'];
+          name = loginResult['name'];
         });
         _showSuccessDialog();
+        // Navigasi ke halaman ListStory setelah berhasil login
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ListStory(authToken: authToken, name: name),
+          ),
+        );
       } else {
         setState(() {
           message = 'Login gagal: ${responseData['message']}';
@@ -151,14 +163,21 @@ class _LoginPageState extends State<LoginPage>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Lengkapilah data dirimu di bawah ini ya !',
+                        'Sudah siap untuk berbagi cerita?',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
                       ),
-                      const SizedBox(height: 6),
+                      Text(
+                        'Masukkan datamu dulu ya',
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
                       Text(
                         'Email',
                         style: TextStyle(

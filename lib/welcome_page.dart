@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:story/daftar_page.dart';
+import 'package:story/login_page.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -71,33 +73,41 @@ class _WelcomePageState extends State<WelcomePage>
                       ),
                     ),
                     const SizedBox(height: 25),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ButtonBar(
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: Text('Masuk'),
-                              style: ElevatedButton.styleFrom(
-                                primary: Color(0xFF1A1A1A),
-                                onPrimary: Colors.white,
-                                fixedSize: Size(120, 0),
-                              ),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()));
+                            },
+                            child: Text('Masuk'),
+                            style: ElevatedButton.styleFrom(
+                              primary: Color(0xFF1A1A1A),
+                              onPrimary: Colors.white,
+                              fixedSize: Size(120, 0),
                             ),
-                            SizedBox(width: 20),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: Text('Daftar'),
-                              style: ElevatedButton.styleFrom(
-                                primary: Color(0xFF1A1A1A),
-                                onPrimary: Colors.white,
-                                fixedSize: Size(120, 0),
-                              ),
+                          ),
+                          SizedBox(width: 20),
+                          ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => RegisterPage()));
+                            },
+                            child: Text('Daftar'),
+                            style: ElevatedButton.styleFrom(
+                              primary: Color(0xFF1A1A1A),
+                              onPrimary: Colors.white,
+                              fixedSize: Size(120, 0),
                             ),
-                          ],
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
