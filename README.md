@@ -1,16 +1,25 @@
-# story
+<p align="center">
+  <h2>App for implementation API</h2>
+</p>
 
-A new Flutter project.
+# Aplikasi Android untuk Posting Story
 
-## Getting Started
+Selamat datang di repositori Aplikasi Android untuk Posting Story. Aplikasi ini memungkinkan pengguna untuk membuat akun, masuk, dan membagikan cerita mereka dengan pengguna lain.
 
-This project is a starting point for a Flutter application.
+## Fitur Utama
 
-A few resources to get you started if this is your first Flutter project:
+- **Registrasi**: Pengguna dapat membuat akun baru dengan mengisi formulir registrasi.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Masuk**: Pengguna yang sudah memiliki akun dapat masuk ke aplikasi.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Beranda**: Pengguna dapat melihat cerita yang diposting oleh pengguna lain.
+
+- **Posting Cerita**: Pengguna dapat membuat dan membagikan cerita mereka sendiri.
+
+
+## Instalasi
+
+1. Klon repositori ini ke komputer Anda:
+
+   ```bash
+   git clone https://github.com/namarepo/aplikasi-posting-cerita.git
